@@ -95,21 +95,21 @@ export const NoteEditor: React.FC<NoteEditorProps> = ({ note, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className="bg-white/10 dark:bg-gray-900/10 backdrop-blur-lg rounded-2xl border border-white/20 w-full max-w-4xl max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start justify-center p-4 z-50 overflow-y-auto">
+      <div className="bg-white/10 dark:bg-gray-900/10 backdrop-blur-lg rounded-2xl border border-white/20 w-full max-w-4xl max-h-[95vh] flex flex-col my-4">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-white/10">
-          <div className="flex items-center space-x-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 sm:p-6 border-b border-white/10">
+          <div className="flex-1 w-full sm:flex-none sm:w-auto mb-4 sm:mb-0">
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Note title..."
-              className="text-2xl font-bold bg-transparent border-none outline-none text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 flex-1"
+              className="text-xl sm:text-2xl font-bold bg-transparent border-none outline-none text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 w-full"
             />
           </div>
           
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center justify-end space-x-2 w-full sm:w-auto">
             <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
               {autoSaving && <span className="animate-pulse">Saving...</span>}
               {lastSaved && !autoSaving && <span>{formatLastSaved(lastSaved)}</span>}
@@ -132,7 +132,7 @@ export const NoteEditor: React.FC<NoteEditorProps> = ({ note, onClose }) => {
               className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 disabled:opacity-50"
             >
               <Save className="w-4 h-4" />
-              <span>{saving ? 'Saving...' : 'Save'}</span>
+              <span className="hidden sm:inline">{saving ? 'Saving...' : 'Save'}</span>
             </button>
             
             <button
@@ -145,7 +145,7 @@ export const NoteEditor: React.FC<NoteEditorProps> = ({ note, onClose }) => {
         </div>
 
         {/* Tags */}
-        <div className="px-6 py-3 border-b border-white/10">
+        <div className="px-4 py-3 sm:px-6 sm:py-3 border-b border-white/10">
           <div className="flex items-center space-x-2 mb-2">
             <Tag className="w-4 h-4 text-gray-500 dark:text-gray-400" />
             <input
@@ -177,26 +177,26 @@ export const NoteEditor: React.FC<NoteEditorProps> = ({ note, onClose }) => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-6">
+        <div className="flex-1 p-4 sm:p-6 overflow-y-auto">
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Start writing your note..."
-            className="w-full h-full bg-transparent border-none outline-none resize-none text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg leading-relaxed"
+            className="w-full h-full bg-transparent border-none outline-none resize-none text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-base sm:text-lg leading-relaxed"
             autoFocus
           />
         </div>
 
         {/* Footer */}
         {note && (
-          <div className="px-6 py-3 border-t border-white/10">
-            <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-              <div className="flex items-center space-x-4">
+          <div className="px-4 py-3 sm:px-6 sm:py-3 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs sm:text-sm text-gray-500 dark:text-gray-400 space-y-2 sm:space-y-0">
+              <div className="flex items-center space-x-2 sm:space-x-4">
                 <div className="flex items-center space-x-1">
                   <Calendar className="w-4 h-4" />
                   <span>Created {note.createdAt.toLocaleDateString()}</span>
                 </div>
-                <span>•</span>
+                <span className="hidden sm:inline">•</span>
                 <span>Last modified {note.updatedAt.toLocaleString()}</span>
               </div>
               <div>

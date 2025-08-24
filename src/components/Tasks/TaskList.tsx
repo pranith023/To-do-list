@@ -28,9 +28,9 @@ export default function TaskList() {
   const completedCount = tasks.filter(task => task.completed).length;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 px-4">
       {/* Search and Filter Section */}
-      <div className="backdrop-blur-lg bg-white/80 dark:bg-gray-800/80 rounded-2xl border border-white/20 dark:border-gray-700/20 p-6">
+      <div className="backdrop-blur-lg bg-white/80 dark:bg-gray-800/80 rounded-2xl border border-white/20 dark:border-gray-700/20 p-4 sm:p-6">
         <div className="space-y-4">
           {/* Search Bar */}
           <div className="relative">
@@ -52,7 +52,7 @@ export default function TaskList() {
             </div>
             
             {/* Status Filters */}
-            <div className="flex space-x-2">
+            <div className="flex flex-wrap gap-2">
               {[
                 { key: 'all', label: 'All', icon: ListTodo },
                 { key: 'pending', label: 'Pending', icon: Clock },
@@ -74,7 +74,7 @@ export default function TaskList() {
             </div>
 
             {/* Category Filters */}
-            <div className="flex space-x-2">
+            <div className="flex flex-wrap gap-2">
               {categories.map(category => (
                 <button
                   key={category}
@@ -94,7 +94,7 @@ export default function TaskList() {
       </div>
 
       {/* Statistics */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div className="backdrop-blur-lg bg-white/80 dark:bg-gray-800/80 rounded-2xl border border-white/20 dark:border-gray-700/20 p-6">
           <div className="flex items-center space-x-3">
             <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl">

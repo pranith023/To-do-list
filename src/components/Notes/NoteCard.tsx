@@ -39,7 +39,7 @@ export const NoteCard: React.FC<NoteCardProps> = ({ note, onEdit }) => {
   };
 
   return (
-    <div className="group relative bg-white/10 dark:bg-gray-900/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl cursor-pointer">
+    <div className="group relative bg-white/10 dark:bg-gray-900/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-white/20 hover:border-white/40 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl cursor-pointer">
       {note.isPinned && (
         <div className="absolute top-4 right-4">
           <Pin className="w-4 h-4 text-yellow-500 fill-current" />
@@ -55,10 +55,10 @@ export const NoteCard: React.FC<NoteCardProps> = ({ note, onEdit }) => {
           {getPreviewText(note.content) || 'No content'}
         </p>
 
-        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-gray-500 dark:text-gray-400 space-y-2 sm:space-y-0">
           <span>{formatDate(note.updatedAt)}</span>
           {note.tags && note.tags.length > 0 && (
-            <div className="flex space-x-1">
+            <div className="flex flex-wrap gap-1">
               {note.tags.slice(0, 2).map((tag, index) => (
                 <span key={index} className="bg-blue-500/20 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full text-xs">
                   {tag}

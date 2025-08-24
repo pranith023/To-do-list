@@ -41,9 +41,9 @@ export default function TaskForm({ isOpen, onClose }: TaskFormProps) {
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className="backdrop-blur-lg bg-white/90 dark:bg-gray-900/90 rounded-3xl border border-white/20 dark:border-gray-700/20 p-8 w-full max-w-md shadow-2xl">
+      <div className="backdrop-blur-lg bg-white/90 dark:bg-gray-900/90 rounded-3xl border border-white/20 dark:border-gray-700/20 p-6 sm:p-8 w-full max-w-md shadow-2xl">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Add New Task</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Add New Task</h3>
           <button
             onClick={onClose}
             className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-all duration-200"

@@ -13,7 +13,7 @@ const AppRoutes: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 flex items-center justify-center p-4">
         <div className="text-center">
           <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto animate-pulse">
             <span className="text-white font-bold text-xl">N</span>
@@ -52,7 +52,7 @@ function App() {
           </Router>
         </TaskProvider>
       </AuthProvider>
-      <Toaster /> // Add Toaster component here
+      <Toaster /> 
     </ThemeProvider>
   );
 }

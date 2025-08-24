@@ -54,7 +54,7 @@ export default function TaskItem({ task, onUpdate, onDelete }: TaskItemProps) {
 
   return (
     <div className={`group backdrop-blur-lg bg-white/80 dark:bg-gray-800/80 rounded-2xl border border-white/20 dark:border-gray-700/20 p-4 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 ${task.completed ? 'opacity-75' : ''}`}>
-      <div className="flex items-start space-x-3">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-3">
         <button
           onClick={() => onUpdate(task.id, { completed: !task.completed })}
           className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 transform hover:scale-110 ${
@@ -107,7 +107,7 @@ export default function TaskItem({ task, onUpdate, onDelete }: TaskItemProps) {
                   {task.description}
                 </p>
               )}
-              <div className="flex items-center justify-between mt-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-3 space-y-2 sm:space-y-0">
                 <div className="flex items-center space-x-2">
                   <span className={`px-2 py-1 rounded-lg text-xs font-medium capitalize ${
                     categoryColors[task.category as keyof typeof categoryColors] || categoryColors.general
@@ -124,7 +124,7 @@ export default function TaskItem({ task, onUpdate, onDelete }: TaskItemProps) {
           )}
         </div>
 
-        <div className="flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        <div className="flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 mt-2 sm:mt-0">
           <button
             onClick={() => setIsEditing(!isEditing)}
             className="p-2 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 text-blue-600 dark:text-blue-400 transition-all duration-200 transform hover:scale-110"
